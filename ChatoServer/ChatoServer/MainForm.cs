@@ -27,6 +27,16 @@ namespace ChatoServer
             return (int)this.numericUpDown1.Value;
         }
 
+        public string GetMsgText()
+        {
+            return this.textBox3.Text.Trim();
+        }
+
+        public void ClearMsgText()
+        {
+            this.textBox3.Clear();
+        }
+
         delegate void VoidString(string s);
         public void Println(string s)
         {

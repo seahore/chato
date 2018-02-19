@@ -63,11 +63,11 @@ namespace ChatoServer
                     int len = send.Receive(buf);
                     if (len == 0) break;
                     string s = Encoding.UTF8.GetString(buf, 0, len);
-                    form.Println("服务器：" + s);
+                    form.Println(s);
                 }
                 catch (Exception e) {
                     form.SetConnectionStatusLabel(false);
-                    form.Println("服务器已中断连接。");
+                    form.Println($"服务器已中断连接：{e.Message}");
                     break;
                 }
             }
@@ -76,9 +76,9 @@ namespace ChatoServer
         static void SendMsg(object sender, EventArgs e)
         {
             string msg = form.GetMsgText();
+            if (msg == "") return;
             byte[] sendee = Encoding.UTF8.GetBytes(msg);
             clientSocket.Send(sendee);
-            form.Println(msg);
             form.ClearMsgText();
         }
     }

@@ -14,7 +14,7 @@ namespace ChatoServer
         static IPAddress ip = null;
         static IPEndPoint point = null;
 
-        static Dictionary<string, Socket> clientConnections = null;
+        static Dictionary<string, Socket> allClientSockets = null;
 
         static MainForm form = null;
         /// <summary>
@@ -23,7 +23,7 @@ namespace ChatoServer
         [STAThread]
         static void Main()
         {
-            clientConnections = new Dictionary<string, Socket>();
+            allClientSockets = new Dictionary<string, Socket>();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -67,7 +67,7 @@ namespace ChatoServer
                     string clientPoint = clientSocket.RemoteEndPoint.ToString();
                     form.Println($"{clientPoint} 上的客户端请求连接。");
 
-                    clientConnections.Add(clientPoint, clientSocket);
+                    allClientSockets.Add(clientPoint, clientSocket);
                     form.ComboBoxAddItem(clientPoint);
 
                     //开启一个新线程不停接收消息
@@ -96,11 +96,17 @@ namespace ChatoServer
 
                     string s = Encoding.UTF8.GetString(buf, 0, len);
                     form.Println($"{clientPoint}: {s}");
+
+                    foreach (Socket t in allClientSockets.Values) {
+                        byte[] sendee = Encoding.UTF8.GetBytes($"{clientPoint}: {s}");
+                        t.Send(sendee);
+                    }
+
                     //byte[] sendee = Encoding.UTF8.GetBytes("服务器返回信息");
                     //clientSocket.Send(sendee);
                 }
                 catch (Exception e) {
-                    clientConnections.Remove(clientPoint);
+                    allClientSockets.Remove(clientPoint);
                     form.ComboBoxRemoveItem(clientPoint);
 
                     form.Println($"客户端 {clientSocket.RemoteEndPoint} 中断连接： "+e.Message);
@@ -109,9 +115,16 @@ namespace ChatoServer
                 }
             }
         }
+
         static void SendMsg(object sender, EventArgs e)
         {
-
+            string msg = form.GetMsgText();
+            if (msg == "") return;
+            byte[] sendee = Encoding.UTF8.GetBytes($"服务器：{msg}");
+            foreach(Socket s in allClientSockets.Values)
+                s.Send(sendee);
+            form.Println(msg);
+            form.ClearMsgText();
         }
 
     }
