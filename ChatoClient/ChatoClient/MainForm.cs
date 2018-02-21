@@ -68,5 +68,19 @@ namespace ChatoServer
             }
         }
 
+        delegate void VoidBool(bool b);
+        public void SetButtonSendEnabled(bool enabled)
+        {
+            if (this.buttonSend.InvokeRequired)
+            {
+                VoidBool sbse = SetButtonSendEnabled;
+                this.textBoxMsg.Invoke(sbse, enabled);
+            }
+            else
+            {
+                this.buttonSend.Enabled = enabled;
+            }
+        }
+
     }
 }

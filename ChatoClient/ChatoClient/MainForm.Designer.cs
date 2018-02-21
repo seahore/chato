@@ -49,11 +49,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "IP 地址";
             // 
-            // textBox1
+            // textBoxIP
             // 
             this.textBoxIP.Location = new System.Drawing.Point(65, 6);
             this.textBoxIP.MaxLength = 15;
-            this.textBoxIP.Name = "textBox1";
+            this.textBoxIP.Name = "textBoxIP";
             this.textBoxIP.Size = new System.Drawing.Size(100, 23);
             this.textBoxIP.TabIndex = 1;
             this.textBoxIP.Text = "127.0.0.1";
@@ -67,7 +67,7 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "端口";
             // 
-            // numericUpDown1
+            // numericUpDownPort
             // 
             this.numericUpDownPort.Location = new System.Drawing.Point(209, 6);
             this.numericUpDownPort.Maximum = new decimal(new int[] {
@@ -75,7 +75,7 @@
             0,
             0,
             0});
-            this.numericUpDownPort.Name = "numericUpDown1";
+            this.numericUpDownPort.Name = "numericUpDownPort";
             this.numericUpDownPort.Size = new System.Drawing.Size(55, 23);
             this.numericUpDownPort.TabIndex = 3;
             this.numericUpDownPort.Value = new decimal(new int[] {
@@ -84,48 +84,49 @@
             0,
             0});
             // 
-            // textBox2
+            // textBoxMsg
             // 
             this.textBoxMsg.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxMsg.Location = new System.Drawing.Point(11, 35);
             this.textBoxMsg.Multiline = true;
-            this.textBoxMsg.Name = "textBox2";
+            this.textBoxMsg.Name = "textBoxMsg";
             this.textBoxMsg.ReadOnly = true;
             this.textBoxMsg.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxMsg.Size = new System.Drawing.Size(481, 267);
             this.textBoxMsg.TabIndex = 4;
             // 
-            // button1
+            // buttonConnect
             // 
             this.buttonConnect.Location = new System.Drawing.Point(270, 6);
-            this.buttonConnect.Name = "button1";
+            this.buttonConnect.Name = "buttonConnect";
             this.buttonConnect.Size = new System.Drawing.Size(75, 23);
             this.buttonConnect.TabIndex = 5;
             this.buttonConnect.Text = "连接";
             this.buttonConnect.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // buttonSend
             // 
+            this.buttonSend.Enabled = false;
             this.buttonSend.Location = new System.Drawing.Point(417, 308);
-            this.buttonSend.Name = "button2";
+            this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(75, 23);
             this.buttonSend.TabIndex = 6;
             this.buttonSend.Text = "发送";
             this.buttonSend.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // textBoxSendee
             // 
             this.textBoxSendee.Location = new System.Drawing.Point(12, 308);
-            this.textBoxSendee.Name = "textBox3";
+            this.textBoxSendee.Name = "textBoxSendee";
             this.textBoxSendee.Size = new System.Drawing.Size(400, 23);
             this.textBoxSendee.TabIndex = 7;
             // 
-            // label3
+            // labelStatus
             // 
             this.labelStatus.AutoSize = true;
             this.labelStatus.ForeColor = System.Drawing.Color.Red;
             this.labelStatus.Location = new System.Drawing.Point(351, 9);
-            this.labelStatus.Name = "label3";
+            this.labelStatus.Name = "labelStatus";
             this.labelStatus.Size = new System.Drawing.Size(56, 17);
             this.labelStatus.TabIndex = 8;
             this.labelStatus.Text = "尚未连接";

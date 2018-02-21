@@ -40,6 +40,7 @@ namespace ChatoServer
                 //进行连接
                 clientSocket.Connect(point);
                 form.SetConnectionStatusLabel(true, point.ToString());
+                form.SetButtonSendEnabled(true);
                 form.Println($"连接 {point} 的服务器。");
 
                 //不停的接收服务器端发送的消息
@@ -67,6 +68,7 @@ namespace ChatoServer
                 }
                 catch (Exception e) {
                     form.SetConnectionStatusLabel(false);
+                    form.SetButtonSendEnabled(false);
                     form.Println($"服务器已中断连接：{e.Message}");
                     break;
                 }
