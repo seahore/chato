@@ -23,13 +23,13 @@ namespace ChatoServer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            form = new MainForm(b1Click, b2Click);
+            form = new MainForm(bConnectClick, bSendClick);
             Application.Run(form);
 
         }
 
-        static EventHandler b1Click = SetConnection;
-        static EventHandler b2Click = SendMsg;
+        static EventHandler bConnectClick = SetConnection;
+        static EventHandler bSendClick = SendMsg;
         static void SetConnection(object sender, EventArgs e)
         {
             ip = IPAddress.Parse(form.GetIPText());
