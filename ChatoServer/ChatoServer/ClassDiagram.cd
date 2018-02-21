@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ChatoServer.MainForm">
+    <Position X="5.5" Y="1.25" Width="2" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Delegate Name="ChatoServer.MainForm.VoidString">
+        <TypeIdentifier>
+          <NewMemberFileName>MainForm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAABAAQCAAABAICgCAAAACQABAQAAQAhACAgAAAAg=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChatoServer.Program">
+    <Position X="7.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQBAAACAAAAAAEAAAEAAAAAAAiAAAAAQAAAhBAAEAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>

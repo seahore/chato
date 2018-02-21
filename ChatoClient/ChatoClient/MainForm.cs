@@ -13,57 +13,57 @@ namespace ChatoServer
         public MainForm(EventHandler b1Click, EventHandler b2Click)
         {
             InitializeComponent();
-            this.button1.Click += b1Click;
-            this.button2.Click += b2Click;
+            this.buttonConnect.Click += b1Click;
+            this.buttonSend.Click += b2Click;
         }
         
         public string GetIPText()
         {
-            return this.textBox1.Text;
+            return this.textBoxIP.Text;
         }
         
         public int GetPort()
         {
-            return (int)this.numericUpDown1.Value;
+            return (int)this.numericUpDownPort.Value;
         }
 
         public string GetMsgText()
         {
-            return this.textBox3.Text.Trim();
+            return this.textBoxSendee.Text.Trim();
         }
 
         public void ClearMsgText()
         {
-            this.textBox3.Clear();
+            this.textBoxSendee.Clear();
         }
 
         delegate void VoidString(string s);
         public void Println(string s)
         {
-            if (this.textBox2.InvokeRequired) {
+            if (this.textBoxMsg.InvokeRequired) {
                 VoidString println = Println;
-                this.textBox2.Invoke(println, s);
+                this.textBoxMsg.Invoke(println, s);
             }
             else {
-                this.textBox2.AppendText(s + Environment.NewLine);
+                this.textBoxMsg.AppendText(s + Environment.NewLine);
             }
         }
 
         delegate void VoidBoolString(bool b, string s);
         public void SetConnectionStatusLabel(bool isConnect, string point = null)
         {
-            if (this.label3.InvokeRequired) {
+            if (this.labelStatus.InvokeRequired) {
                 VoidBoolString scsl = SetConnectionStatusLabel;
-                this.label3.Invoke(scsl, isConnect, point);
+                this.labelStatus.Invoke(scsl, isConnect, point);
             }
             else {
                 if (isConnect) {
-                    this.label3.ForeColor = Color.Green;
-                    this.label3.Text = point;
+                    this.labelStatus.ForeColor = Color.Green;
+                    this.labelStatus.Text = point;
                 }
                 else {
-                    this.label3.ForeColor = Color.Red;
-                    this.label3.Text = "尚未连接";
+                    this.labelStatus.ForeColor = Color.Red;
+                    this.labelStatus.Text = "尚未连接";
                 }
             }
         }

@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxIP = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.numericUpDownPort = new System.Windows.Forms.NumericUpDown();
+            this.textBoxMsg = new System.Windows.Forms.TextBox();
+            this.buttonConnect = new System.Windows.Forms.Button();
+            this.buttonSend = new System.Windows.Forms.Button();
+            this.textBoxSendee = new System.Windows.Forms.TextBox();
+            this.labelStatus = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,12 +51,12 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(65, 6);
-            this.textBox1.MaxLength = 15;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "127.0.0.1";
+            this.textBoxIP.Location = new System.Drawing.Point(65, 6);
+            this.textBoxIP.MaxLength = 15;
+            this.textBoxIP.Name = "textBox1";
+            this.textBoxIP.Size = new System.Drawing.Size(100, 23);
+            this.textBoxIP.TabIndex = 1;
+            this.textBoxIP.Text = "127.0.0.1";
             // 
             // label2
             // 
@@ -69,16 +69,16 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(209, 6);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericUpDownPort.Location = new System.Drawing.Point(209, 6);
+            this.numericUpDownPort.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(55, 23);
-            this.numericUpDown1.TabIndex = 3;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numericUpDownPort.Name = "numericUpDown1";
+            this.numericUpDownPort.Size = new System.Drawing.Size(55, 23);
+            this.numericUpDownPort.TabIndex = 3;
+            this.numericUpDownPort.Value = new decimal(new int[] {
             6666,
             0,
             0,
@@ -86,64 +86,64 @@
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.Location = new System.Drawing.Point(11, 35);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(481, 267);
-            this.textBox2.TabIndex = 4;
+            this.textBoxMsg.BackColor = System.Drawing.SystemColors.Window;
+            this.textBoxMsg.Location = new System.Drawing.Point(11, 35);
+            this.textBoxMsg.Multiline = true;
+            this.textBoxMsg.Name = "textBox2";
+            this.textBoxMsg.ReadOnly = true;
+            this.textBoxMsg.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxMsg.Size = new System.Drawing.Size(481, 267);
+            this.textBoxMsg.TabIndex = 4;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(270, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "连接";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonConnect.Location = new System.Drawing.Point(270, 6);
+            this.buttonConnect.Name = "button1";
+            this.buttonConnect.Size = new System.Drawing.Size(75, 23);
+            this.buttonConnect.TabIndex = 5;
+            this.buttonConnect.Text = "连接";
+            this.buttonConnect.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(417, 308);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "发送";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonSend.Location = new System.Drawing.Point(417, 308);
+            this.buttonSend.Name = "button2";
+            this.buttonSend.Size = new System.Drawing.Size(75, 23);
+            this.buttonSend.TabIndex = 6;
+            this.buttonSend.Text = "发送";
+            this.buttonSend.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(12, 308);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(400, 23);
-            this.textBox3.TabIndex = 7;
+            this.textBoxSendee.Location = new System.Drawing.Point(12, 308);
+            this.textBoxSendee.Name = "textBox3";
+            this.textBoxSendee.Size = new System.Drawing.Size(400, 23);
+            this.textBoxSendee.TabIndex = 7;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(351, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "尚未连接";
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.ForeColor = System.Drawing.Color.Red;
+            this.labelStatus.Location = new System.Drawing.Point(351, 9);
+            this.labelStatus.Name = "label3";
+            this.labelStatus.Size = new System.Drawing.Size(56, 17);
+            this.labelStatus.TabIndex = 8;
+            this.labelStatus.Text = "尚未连接";
             // 
             // MainForm
             // 
-            this.AcceptButton = this.button2;
+            this.AcceptButton = this.buttonSend;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 343);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.labelStatus);
+            this.Controls.Add(this.textBoxSendee);
+            this.Controls.Add(this.buttonSend);
+            this.Controls.Add(this.buttonConnect);
+            this.Controls.Add(this.textBoxMsg);
+            this.Controls.Add(this.numericUpDownPort);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxIP);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -151,7 +151,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "耳卯 - 客户端";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPort)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,13 +165,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxIP;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericUpDownPort;
+        private System.Windows.Forms.TextBox textBoxMsg;
+        private System.Windows.Forms.Button buttonConnect;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.TextBox textBoxSendee;
+        private System.Windows.Forms.Label labelStatus;
     }
 }

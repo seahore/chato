@@ -27,15 +27,15 @@ namespace ChatoServer
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            form = new MainForm(b1Click, b2Click);
+            form = new MainForm(bListenClick, bSendClick);
             Application.Run(form);
 
         }
 
-        static EventHandler b1Click = SetConnection;
-        static EventHandler b2Click = SendMsg;
+        static EventHandler bListenClick = SetListen;
+        static EventHandler bSendClick = SendMsg;
 
-        static void SetConnection(object sender, EventArgs e)
+        static void SetListen(object sender, EventArgs e)
         {
             ip = IPAddress.Parse(form.GetIPText());
             point = new IPEndPoint(ip, form.GetPort());
@@ -51,7 +51,7 @@ namespace ChatoServer
                 thread.Start(serverSocket);
             }
             catch (Exception ex) {
-                form.Println("错误：" + ex.Message);
+                form.Println($"错误： {ex.Message}");
             }
         }
 
@@ -76,7 +76,7 @@ namespace ChatoServer
                     thread.Start(clientSocket);
                 }
                 catch(Exception e) {
-                    form.Println(e.Message);
+                    form.Println($"错误： {e.Message}");
                     break;
                 }
             }
@@ -105,13 +105,16 @@ namespace ChatoServer
                     //byte[] sendee = Encoding.UTF8.GetBytes("服务器返回信息");
                     //clientSocket.Send(sendee);
                 }
-                catch (Exception e) {
+                catch (SocketException e) {
                     allClientSockets.Remove(clientPoint);
                     form.ComboBoxRemoveItem(clientPoint);
 
-                    form.Println($"客户端 {clientSocket.RemoteEndPoint} 中断连接： "+e.Message);
+                    form.Println($"客户端 {clientSocket.RemoteEndPoint} 中断连接： {e.Message}");
                     clientSocket.Close();
                     break;
+                }
+                catch(Exception e) {
+                    form.Println($"错误： {e.Message}");
                 }
             }
         }

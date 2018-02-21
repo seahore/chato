@@ -10,63 +10,63 @@ namespace ChatoServer
 {
     public partial class MainForm : Form
     {
-        public MainForm(EventHandler b1Click, EventHandler b2Click)
+        public MainForm(EventHandler bListenClick, EventHandler bSendClick)
         {
             InitializeComponent();
-            this.button1.Click += b1Click;
-            this.button2.Click += b2Click;
+            this.buttonListen.Click += bListenClick;
+            this.buttonSend.Click += bSendClick;
         }
 
         public string GetIPText()
         {
-            return this.textBox1.Text;
+            return this.textBoxIP.Text;
         }
         
         public int GetPort()
         {
-            return (int)this.numericUpDown1.Value;
+            return (int)this.numericUpDownPort.Value;
         }
 
         public string GetMsgText()
         {
-            return this.textBox3.Text.Trim();
+            return this.textBoxSendee.Text.Trim();
         }
 
         public void ClearMsgText()
         {
-            this.textBox3.Clear();
+            this.textBoxSendee.Clear();
         }
 
         delegate void VoidString(string s);
         public void Println(string s)
         {
-            if (this.textBox2.InvokeRequired) {
+            if (this.textBoxMsg.InvokeRequired) {
                 VoidString println = Println;
-                this.textBox2.Invoke(println, s);
+                this.textBoxMsg.Invoke(println, s);
             }
             else {
-                this.textBox2.AppendText(s + Environment.NewLine);
+                this.textBoxMsg.AppendText(s + Environment.NewLine);
             }
         }
 
         public void ComboBoxAddItem(string s)
         {
-            if (this.comboBox1.InvokeRequired) {
+            if (this.comboBoxAllClients.InvokeRequired) {
                 VoidString cbAddItem = ComboBoxAddItem;
-                this.textBox2.Invoke(cbAddItem, s);
+                this.textBoxMsg.Invoke(cbAddItem, s);
             }
             else {
-                this.comboBox1.Items.Add(s);
+                this.comboBoxAllClients.Items.Add(s);
             }
         }
         public void ComboBoxRemoveItem(string s)
         {
-            if (this.comboBox1.InvokeRequired) {
+            if (this.comboBoxAllClients.InvokeRequired) {
                 VoidString cbRmItem = ComboBoxRemoveItem;
-                this.textBox2.Invoke(cbRmItem, s);
+                this.textBoxMsg.Invoke(cbRmItem, s);
             }
             else {
-                this.comboBox1.Items.Remove(s);
+                this.comboBoxAllClients.Items.Remove(s);
             }
         }
 
